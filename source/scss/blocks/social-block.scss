@@ -17,6 +17,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 0.3s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +36,11 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition:
+      width 0.3s,
+      height 0.3s,
+      background-color 0.3s,
+      border-color 0.3s;
   }
 
   svg {
@@ -87,8 +93,8 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
-  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0.35s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -127,24 +133,30 @@
     }
   }
 
-  &:hover {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  &:focus-within {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
+  &:hover,
+  &:focus-within,
   .social-block--active & {
-    opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
+
+    li {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   }
 
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20%);
+    transition:
+      transform 0.35s ease-in-out,
+      opacity 0.35s ease-in-out,
+      visibility 0.35s ease-in-out;
+
+    @include childrenDelay(2, 3);
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -168,6 +180,11 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition:
+    color 0.35s,
+    background-color 0.35s,
+    border-color 0.35s;
+
 
   @media (min-width: $stop-scaling) {
     width: 40px;
