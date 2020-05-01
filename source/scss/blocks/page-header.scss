@@ -241,16 +241,19 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color 0.35s;
 
     &::after {
       content: "";
       position: absolute;
       bottom: 0;
-      width: 100%;
+      left: auto;
+      right: 0;
+      display: block;
+      width: 0;
       height: 2px;
       background-color: $c-light;
-      display: none;
-      left: 0;
+      transition: width 0.35s;
 
       @media (min-width: $stop-scaling) {
         left: -5px;
@@ -271,8 +274,12 @@
     }
 
     &.active {
+      pointer-events: none;
+
       &::after {
-        display: block;
+        left: 0;
+        right: auto;
+        width: 100%;
       }
     }
 
@@ -282,7 +289,9 @@
       outline: none;
 
       &::after {
-        opacity: 1;
+        left: 0;
+        right: auto;
+        width: 100%;
         background-color: $c-purple;
       }
     }
