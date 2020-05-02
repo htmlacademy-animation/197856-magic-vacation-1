@@ -35,6 +35,19 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-25%);
+  transition:
+    opacity 0.35s $slowDown,
+    visibility 0.35s $slowDown,
+    transform 0.35s $slowDown;
+
+  .is-load & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -130,6 +143,16 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s $slowDown,
+    visibility 0.5s $slowDown;
+
+  .is-load & {
+    opacity: 1;
+    visibility: visible;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
