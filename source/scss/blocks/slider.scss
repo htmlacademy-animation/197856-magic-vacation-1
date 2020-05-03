@@ -96,14 +96,18 @@
   font-size: 1.8rem;
   line-height: 2rem;
   opacity: 0;
-  visibility: hidden;
+  animation-duration: 0.4s;
+  animation-timing-function: $sineOut;
+  animation-fill-mode: forwards;
 
   .swiper-slide-active & {
-    animation: fadeLeft 0.4s #{$sineOut} 0.3s forwards;
+    animation-name: fadeLeft;
+    animation-delay: 0.3s;
   }
 
   .swiper-slide-next & {
-    animation: fadeLeft 0.4s #{$sineOut} 0.4s forwards;
+    animation-name: fadeLeft;
+    animation-delay: 0.4s;
   }
 
   @media (min-width: $stop-scaling) {
