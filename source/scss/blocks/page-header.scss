@@ -39,9 +39,9 @@
   visibility: hidden;
   transform: translateX(-25%);
   transition:
-    opacity 0.35s $slowDown,
-    visibility 0.35s $slowDown,
-    transform 0.35s $slowDown;
+    opacity 0.75s $slowDown,
+    visibility 0.75s $slowDown,
+    transform 0.75s $slowDown;
 
   .is-load & {
     opacity: 1;
@@ -146,8 +146,8 @@
   opacity: 0;
   visibility: hidden;
   transition:
-    opacity 0.5s $slowDown,
-    visibility 0.5s $slowDown;
+    opacity 0.75s $slowDown,
+    visibility 0.75s $slowDown;
 
   .is-load & {
     opacity: 1;
@@ -276,7 +276,7 @@
       width: 0;
       height: 2px;
       background-color: $c-light;
-      transition: width 0.35s;
+      transition: width 0.4s;
 
       @media (min-width: $stop-scaling) {
         left: -5px;
@@ -298,7 +298,9 @@
 
     &.active {
       pointer-events: none;
+    }
 
+    .is-load &.active {
       &::after {
         left: 0;
         right: auto;
