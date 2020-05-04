@@ -46,7 +46,7 @@ export default class FullPageScroll {
   }
 
   onScroll(evt) {
-    this.setPrevScreen();
+    this.setCurrentScreen();
     this.reCalculateActiveScreenPosition(evt.deltaY);
 
     location.hash = this.screenElements[this.activeScreen].id;
@@ -65,11 +65,11 @@ export default class FullPageScroll {
   }
 
   checkTransitionFromStoryToPrizes() {
-    const prevScreen = this.prevScreen;
+    const currentScreen = this.currentScreen;
     const nextScreen = location.hash.slice(1);
 
     return (
-      prevScreen && prevScreen.id === Screens.STORY &&
+      currentScreen && currentScreen.id === Screens.STORY &&
       nextScreen === Screens.PRIZES
     );
   }
@@ -78,13 +78,13 @@ export default class FullPageScroll {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
 
-    this.setPrevScreen();
+    this.setCurrentScreen();
 
     this.changeActiveMenuItem();
   }
 
-  setPrevScreen() {
-    this.prevScreen = this.screenElements[this.activeScreen];
+  setCurrentScreen() {
+    this.currentScreen = this.screenElements[this.activeScreen];
   }
 
   changePageDisplay() {
