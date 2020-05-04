@@ -1,4 +1,14 @@
 import throttle from 'lodash/throttle';
+import vars from "../vars";
+import PageOverlay from "./page-overlay";
+
+const Screens = {
+  TOP: `top`,
+  PRIZES: `prizes`,
+  STORY: `story`,
+  RULES: `rules`,
+  GAME: `rules`,
+};
 
 export default class FullPageScroll {
   constructor() {
@@ -10,10 +20,25 @@ export default class FullPageScroll {
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChenged.bind(this);
+
+    this.scrollHandler = throttle(
+        this.onScrollHandler,
+        this.THROTTLE_TIMEOUT,
+        {
+          trailing: false,
+        }
+    );
+
+    this.changePageDisplay = this.changePageDisplay.bind(this);
+
+    this.pageOverlay = new PageOverlay(
+        vars.pageOverlay,
+        this.changePageDisplay,
+    );
   }
 
   init() {
-    document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT));
+    document.addEventListener(`wheel`, this.scrollHandler);
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
     this.onUrlHashChenged();
@@ -21,22 +46,49 @@ export default class FullPageScroll {
   }
 
   onScroll(evt) {
-    const currentPosition = this.activeScreen;
+    this.setPrevScreen();
     this.reCalculateActiveScreenPosition(evt.deltaY);
-    if (currentPosition !== this.activeScreen) {
+
+    location.hash = this.screenElements[this.activeScreen].id;
+  }
+
+  onUrlHashChenged() {
+    if (this.checkTransitionFromStoryToPrizes()
+    ) {
+      this.setPageScreenByUrl();
+
+      this.pageOverlay.animate();
+    } else {
+      this.setPageScreenByUrl();
       this.changePageDisplay();
     }
   }
 
-  onUrlHashChenged() {
+  checkTransitionFromStoryToPrizes() {
+    const prevScreen = this.prevScreen;
+    const nextScreen = location.hash.slice(1);
+
+    return (
+      prevScreen && prevScreen.id === Screens.STORY &&
+      nextScreen === Screens.PRIZES
+    );
+  }
+
+  setPageScreenByUrl() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-    this.changePageDisplay();
+
+    this.setPrevScreen();
+
+    this.changeActiveMenuItem();
+  }
+
+  setPrevScreen() {
+    this.prevScreen = this.screenElements[this.activeScreen];
   }
 
   changePageDisplay() {
     this.changeVisibilityDisplay();
-    this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
 
