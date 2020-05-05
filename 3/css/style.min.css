@@ -942,6 +942,12 @@ img {
   to {
     width: calc(100% - 21rem); } }
 
+@keyframes animateOverlay {
+  from {
+    height: 0; }
+  to {
+    height: 100%; } }
+
 .animation-screen {
   position: fixed;
   display: flex;
@@ -962,6 +968,9 @@ img {
   @media (orientation: portrait) and (min-resolution: 144dpi), (orientation: portrait) and (min-resolution: 1.5dppx) {
     .animation-screen {
       background-image: url("../img/scene-mob@2x.png"); } }
+
+.animation-screen--upper {
+  z-index: 5; }
 
 .btn {
   padding: 0;
@@ -2562,7 +2571,7 @@ img {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  z-index: 1;
+  z-index: 5;
   overflow: hidden; }
   .screen--hidden {
     display: none; }
@@ -2823,7 +2832,6 @@ img {
         display: inline; }
 
 .screen--story {
-  background-color: #5f458c;
   background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -2833,12 +2841,8 @@ img {
       background-size: auto calc(100vh - 13.8rem), 100% 25rem;
       background-position: top center, bottom center; } }
 
-.screen--prizes {
-  background-color: #5f458c; }
-
 .screen--game {
-  position: relative;
-  background-color: #5f458c; }
+  position: relative; }
   .screen--game::before {
     content: "";
     position: absolute;
@@ -2866,15 +2870,11 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #5f458c;
   opacity: 0;
   pointer-events: none; }
   .screen--result.screen--show {
     opacity: 1;
     pointer-events: auto; }
-
-.screen--rules {
-  background-color: #5f458c; }
 
 .slider {
   position: relative;
@@ -3321,19 +3321,17 @@ img {
 .page-overlay {
   position: absolute;
   left: 0;
-  top: 0;
-  z-index: 10;
+  bottom: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
-  background-color: #5f458c;
-  transform: scaleY(0);
-  transform-origin: top center;
-  transition: transform 0.25s cubic-bezier(0.39, 0.58, 0.57, 1); }
+  background-color: #5f458c; }
 
-.page-overlay--visible {
-  transform: scaleY(1);
-  transform-origin: bottom center;
-  transition-duration: 0.5s; }
+.page-overlay--animate {
+  z-index: 10;
+  animation-name: animateOverlay;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1); }
 
 
 /*# sourceMappingURL=style.min.css.map*/

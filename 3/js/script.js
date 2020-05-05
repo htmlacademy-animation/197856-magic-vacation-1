@@ -10353,6 +10353,14 @@ class FullPageScroll {
     );
   }
 
+  checkAnimationScreenInMain() {
+    if (this.screenElements[this.activeScreen].id === Screens.TOP) {
+      _vars__WEBPACK_IMPORTED_MODULE_1__["default"].animationScreen.classList.add(`animation-screen--upper`);
+    } else {
+      _vars__WEBPACK_IMPORTED_MODULE_1__["default"].animationScreen.classList.remove(`animation-screen--upper`);
+    }
+  }
+
   setPageScreenByUrl() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
@@ -10367,6 +10375,7 @@ class FullPageScroll {
   }
 
   changePageDisplay() {
+    this.checkAnimationScreenInMain();
     this.changeVisibilityDisplay();
     this.emitChangeDisplayEvent();
   }
@@ -10521,34 +10530,34 @@ class PageOverlay {
 
   destroy() {
     this.removeListeners();
-    this.overlayItem.classList.remove(`page-overlay--visible`);
+    this.overlayItem.classList.remove(`page-overlay--animate`);
   }
 
   animate() {
-    this.overlayItem.classList.add(`page-overlay--visible`);
+    this.overlayItem.classList.add(`page-overlay--animate`);
   }
 
   addListeners() {
     this.overlayItem.addEventListener(
-        `transitionend`,
+        `animationend`,
         this.onOverlayTransitionEnd
     );
   }
 
   removeListeners() {
     this.overlayItem.removeEventListener(
-        `transitionend`,
+        `animationend`,
         this.onOverlayTransitionEnd);
   }
 
   onPageOverlayTransitionEnd() {
-    const isVisible = this.overlayItem.classList.contains(`page-overlay--visible`);
+    const isVisible = this.overlayItem.classList.contains(`page-overlay--animate`);
 
     if (typeof this.callback === `function` && isVisible) {
       this.callback();
     }
 
-    this.overlayItem.classList.remove(`page-overlay--visible`);
+    this.overlayItem.classList.remove(`page-overlay--animate`);
   }
 }
 
@@ -10780,6 +10789,7 @@ const vars = {};
 vars.body = document.body;
 vars.html = document.documentElement;
 vars.pageOverlay = document.querySelector(`.page-overlay`);
+vars.animationScreen = document.querySelector(`.animation-screen`);
 
 /* harmony default export */ __webpack_exports__["default"] = (vars);
 
