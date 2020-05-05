@@ -14,33 +14,33 @@ export default class PageOverlay {
 
   destroy() {
     this.removeListeners();
-    this.overlayItem.classList.remove(`page-overlay--visible`);
+    this.overlayItem.classList.remove(`page-overlay--animate`);
   }
 
   animate() {
-    this.overlayItem.classList.add(`page-overlay--visible`);
+    this.overlayItem.classList.add(`page-overlay--animate`);
   }
 
   addListeners() {
     this.overlayItem.addEventListener(
-        `transitionend`,
+        `animationend`,
         this.onOverlayTransitionEnd
     );
   }
 
   removeListeners() {
     this.overlayItem.removeEventListener(
-        `transitionend`,
+        `animationend`,
         this.onOverlayTransitionEnd);
   }
 
   onPageOverlayTransitionEnd() {
-    const isVisible = this.overlayItem.classList.contains(`page-overlay--visible`);
+    const isVisible = this.overlayItem.classList.contains(`page-overlay--animate`);
 
     if (typeof this.callback === `function` && isVisible) {
       this.callback();
     }
 
-    this.overlayItem.classList.remove(`page-overlay--visible`);
+    this.overlayItem.classList.remove(`page-overlay--animate`);
   }
 }

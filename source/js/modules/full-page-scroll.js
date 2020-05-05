@@ -74,6 +74,14 @@ export default class FullPageScroll {
     );
   }
 
+  checkAnimationScreenInMain() {
+    if (this.screenElements[this.activeScreen].id === Screens.TOP) {
+      vars.animationScreen.classList.add(`animation-screen--upper`);
+    } else {
+      vars.animationScreen.classList.remove(`animation-screen--upper`);
+    }
+  }
+
   setPageScreenByUrl() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
@@ -88,6 +96,7 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
+    this.checkAnimationScreenInMain();
     this.changeVisibilityDisplay();
     this.emitChangeDisplayEvent();
   }

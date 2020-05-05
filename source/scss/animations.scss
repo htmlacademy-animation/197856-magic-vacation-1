@@ -31,3 +31,13 @@
     width: calc(100% - 21rem);
   }
 }
+
+@keyframes animateOverlay {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
+}

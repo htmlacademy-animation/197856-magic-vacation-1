@@ -1,18 +1,16 @@
 .page-overlay {
   position: absolute;
   left: 0;
-  top: 0;
-  z-index: 10;
+  bottom: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   background-color: $c-dark;
-  transform: scaleY(0);
-  transform-origin: top center;
-  transition: transform 0.25s $sineOut;
 }
 
-.page-overlay--visible {
-  transform: scaleY(1);
-  transform-origin: bottom center;
-  transition-duration: 0.5s;
+.page-overlay--animate {
+  z-index: 10;
+  animation-name: animateOverlay;
+  animation-duration: 0.5s;
+  animation-timing-function: $sineOut;
 }
