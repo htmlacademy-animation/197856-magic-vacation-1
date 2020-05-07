@@ -1,14 +1,4 @@
 import throttle from 'lodash/throttle';
-import vars from "../vars";
-import PageOverlay from "./page-overlay";
-
-const Screens = {
-  TOP: `top`,
-  PRIZES: `prizes`,
-  STORY: `story`,
-  RULES: `rules`,
-  GAME: `rules`,
-};
 
 export default class FullPageScroll {
   constructor() {
@@ -19,85 +9,33 @@ export default class FullPageScroll {
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
-    this.onUrlHashChengedHandler = this.onUrlHashChenged.bind(this);
-
-    this.scrollHandler = throttle(
-        this.onScrollHandler,
-        this.THROTTLE_TIMEOUT,
-        {
-          trailing: false,
-        }
-    );
-
-    this.changePageDisplay = this.changePageDisplay.bind(this);
-
-    this.pageOverlay = new PageOverlay(
-        vars.pageOverlay,
-        this.changePageDisplay,
-    );
+    this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
   }
 
   init() {
-    document.addEventListener(`wheel`, this.scrollHandler);
+    document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
-    this.onUrlHashChenged();
-    this.changePageDisplay();
+    this.onUrlHashChanged();
   }
 
   onScroll(evt) {
-    this.setCurrentScreen();
+    const currentPosition = this.activeScreen;
     this.reCalculateActiveScreenPosition(evt.deltaY);
-
-    location.hash = this.screenElements[this.activeScreen].id;
-  }
-
-  onUrlHashChenged() {
-    if (this.checkTransitionFromStoryToPrizes()
-    ) {
-      this.setPageScreenByUrl();
-
-      this.pageOverlay.animate();
-    } else {
-      this.setPageScreenByUrl();
+    if (currentPosition !== this.activeScreen) {
       this.changePageDisplay();
     }
   }
 
-  checkTransitionFromStoryToPrizes() {
-    const currentScreen = this.currentScreen;
-    const nextScreen = location.hash.slice(1);
-
-    return (
-      currentScreen && currentScreen.id === Screens.STORY &&
-      nextScreen === Screens.PRIZES
-    );
-  }
-
-  checkAnimationScreenInMain() {
-    if (this.screenElements[this.activeScreen].id === Screens.TOP) {
-      vars.animationScreen.classList.add(`animation-screen--upper`);
-    } else {
-      vars.animationScreen.classList.remove(`animation-screen--upper`);
-    }
-  }
-
-  setPageScreenByUrl() {
+  onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-
-    this.setCurrentScreen();
-
-    this.changeActiveMenuItem();
-  }
-
-  setCurrentScreen() {
-    this.currentScreen = this.screenElements[this.activeScreen];
+    this.changePageDisplay();
   }
 
   changePageDisplay() {
-    this.checkAnimationScreenInMain();
     this.changeVisibilityDisplay();
+    this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
   }
 
