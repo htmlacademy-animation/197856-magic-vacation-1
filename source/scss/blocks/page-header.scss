@@ -6,10 +6,6 @@
   padding: 2.7rem 0;
   z-index: 10;
 
-  @media (min-width: $stop-scaling) {
-    padding: 27px 0;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     padding: 0.9rem 0;
   }
@@ -35,12 +31,6 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
-
-  @media (min-width: $stop-scaling) {
-    top: -5px;
-    padding: 10px 0;
-    width: 113px;
-  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     top: 0;
@@ -178,10 +168,6 @@
   line-height: 1.0418;
   color: $c-light;
 
-  @media (min-width: $stop-scaling) {
-    font-size: 12px;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     margin: auto 0;
     font-size: 2.4rem;
@@ -215,10 +201,6 @@
   li {
     margin-left: 4rem;
 
-    @media (min-width: $stop-scaling) {
-      margin-left: 40px;
-    }
-
     @media (max-width: $tablet) and (orientation: portrait) {
       margin: 0 0 2.5rem;
 
@@ -245,12 +227,12 @@
     &::after {
       content: "";
       position: absolute;
+      right: 0;
       bottom: 0;
-      width: 100%;
+      width: 0;
       height: 2px;
       background-color: $c-light;
-      display: none;
-      left: 0;
+      transition: width 0.4s;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -267,7 +249,9 @@
 
     &.active {
       &::after {
-        display: block;
+        left: 0;
+        right: auto;
+        width: 100%;
       }
     }
 
@@ -277,6 +261,9 @@
       outline: none;
 
       &::after {
+        left: 0;
+        right: auto;
+        width: 100%;
         opacity: 1;
         background-color: $c-purple;
       }
@@ -286,10 +273,6 @@
 
 .page-header__social {
   margin-left: 4.8rem;
-
-  @media (min-width: $stop-scaling) {
-    margin-left: 48px;
-  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     margin-left: 0;
