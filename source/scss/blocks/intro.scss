@@ -6,10 +6,6 @@
   padding: 15.5rem 0 10rem;
   width: 100%;
 
-  @media (min-width: $stop-scaling) {
-    padding: 155px 0 100px;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     padding: 6rem 0 5.6rem;
   }
@@ -33,11 +29,6 @@
   line-height: 0.906;
   letter-spacing: -0.04em;
 
-  @media (min-width: $stop-scaling) {
-    max-width: 990px;
-    font-size: 120px;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     max-width: 100%;
     font-size: 3.6rem;
@@ -58,10 +49,6 @@
   justify-content: space-between;
   padding-left: 6.3rem;
 
-  @media (min-width: $stop-scaling) {
-    padding-left: 63px;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     justify-content: flex-start;
     padding-left: 2.5rem;
@@ -72,10 +59,6 @@
   flex: none;
   width: 50rem;
   max-width: 50%;
-
-  @media (min-width: $stop-scaling) {
-    width: 500px;
-  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -97,11 +80,6 @@
   animation-duration: 0.6s;
   animation-timing-function: $sineOut;
 
-  @media (min-width: $stop-scaling) {
-    width: 509px;
-    font-size: 24px;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 100%;
     max-width: 100%;
@@ -121,11 +99,6 @@
   }
 
   svg {
-    @media (min-width: $stop-scaling) {
-      width: 16px;
-      height: 16px;
-    }
-
     @media (max-width: $tablet) and (orientation: portrait) {
       width: 1.1rem;
       height: 1.1rem;
@@ -144,12 +117,6 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
-
-  @media (min-width: $stop-scaling) {
-    margin: 0 0 16px;
-    width: 250px;
-    font-size: 24px;
-  }
 }
 
 .intro__date {
@@ -159,9 +126,4 @@
   font-size: 4.8rem;
   line-height: 0.906;
   letter-spacing: -0.04em;
-
-  @media (min-width: $stop-scaling) {
-    margin: 0 0 0 -5px;
-    font-size: 48px;
-  }
 }

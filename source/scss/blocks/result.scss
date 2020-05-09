@@ -5,10 +5,6 @@
   padding: 15rem 5.7rem 6rem;
   width: 100%;
 
-  @media (min-width: $stop-scaling) {
-    padding: 150px 57px 60px;
-  }
-
   @media (orientation: portrait) {
     padding: 8rem 0 4rem;
   }
@@ -58,10 +54,6 @@
   margin: 0 auto 2rem;
   color: $c-light;
 
-  @media (min-width: $stop-scaling) {
-    margin: 0 auto 20px;
-  }
-
   @media (orientation: portrait) {
     margin-bottom: 1.5rem;
   }
@@ -83,11 +75,6 @@
   font-size: 4.8rem;
   line-height: 0.906;
   letter-spacing: -0.01em;
-
-  @media (min-width: $stop-scaling) {
-    margin-bottom: 20px;
-    font-size: 48px;
-  }
 
   @media (orientation: portrait) {
     font-size: 2.8rem;
@@ -116,12 +103,6 @@
   line-height: 1.2;
   color: $c-light;
 
-  @media (min-width: $stop-scaling) {
-    margin: auto auto 10px;
-    min-width: 340px;
-    font-size: 24px;
-  }
-
   @media (orientation: portrait) {
     margin: auto 0 0;
     transform: none;
@@ -148,12 +129,6 @@
     height: 4rem;
     color: $c-dark;
 
-    @media (min-width: $stop-scaling) {
-      margin-left: 15px;
-      width: 40px;
-      height: 40px;
-    }
-
     &::before {
       @include center;
       content: "";
@@ -171,12 +146,6 @@
     margin-left: 0.3rem;
     width: 2.4rem;
     height: 1.9rem;
-
-    @media (min-width: $stop-scaling) {
-      margin-left: 3px;
-      width: 24px;
-      height: 19px;
-    }
   }
 
   &:hover {
@@ -219,11 +188,6 @@
     width: 57.3rem;
     height: 11.3rem;
 
-    @media (min-width: $stop-scaling) {
-      width: 573px;
-      height: 113px;
-    }
-
     @media (orientation: portrait) {
       width: 28.7rem;
       height: 5.7rem;
@@ -245,12 +209,6 @@
     margin-top: 9.5rem;
     width: 66.5rem;
     height: 11.3rem;
-
-    @media (min-width: $stop-scaling) {
-      margin-top: 95px;
-      width: 665px;
-      height: 113px;
-    }
 
     @media (orientation: portrait) {
       margin-top: 0;

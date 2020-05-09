@@ -6,10 +6,6 @@
   padding: 2.7rem 0;
   z-index: 20;
 
-  @media (min-width: $stop-scaling) {
-    padding: 27px 0;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     padding: 0.9rem 0;
   }
@@ -47,12 +43,6 @@
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
-  }
-
-  @media (min-width: $stop-scaling) {
-    top: -5px;
-    padding: 10px 0;
-    width: 113px;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -201,10 +191,6 @@
   line-height: 1.0418;
   color: $c-light;
 
-  @media (min-width: $stop-scaling) {
-    font-size: 12px;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     margin: auto 0;
     font-size: 2.4rem;
@@ -237,10 +223,6 @@
 
   li {
     margin-left: 4rem;
-
-    @media (min-width: $stop-scaling) {
-      margin-left: 40px;
-    }
 
     @media (max-width: $tablet) and (orientation: portrait) {
       margin: 0 0 2.5rem;
@@ -277,11 +259,6 @@
       height: 2px;
       background-color: $c-light;
       transition: width 0.4s;
-
-      @media (min-width: $stop-scaling) {
-        left: -5px;
-        right: -5px;
-      }
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -325,10 +302,6 @@
 
 .page-header__social {
   margin-left: 4.8rem;
-
-  @media (min-width: $stop-scaling) {
-    margin-left: 48px;
-  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     margin-left: 0;
