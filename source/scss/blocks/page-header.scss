@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   padding: 2.7rem 0;
-  z-index: 10;
+  z-index: 20;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     padding: 0.9rem 0;
@@ -31,6 +31,19 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-25%);
+  transition:
+    opacity 0.75s $slowDown,
+    visibility 0.75s $slowDown,
+    transform 0.75s $slowDown;
+
+  .is-load & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     top: 0;
@@ -120,6 +133,16 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.75s $slowDown,
+    visibility 0.75s $slowDown;
+
+  .is-load & {
+    opacity: 1;
+    visibility: visible;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -223,12 +246,15 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color 0.35s;
 
     &::after {
       content: "";
       position: absolute;
+      left: auto;
       right: 0;
       bottom: 0;
+      display: block;
       width: 0;
       height: 2px;
       background-color: $c-light;
@@ -248,6 +274,10 @@
     }
 
     &.active {
+      pointer-events: none;
+    }
+
+    .is-load &.active {
       &::after {
         left: 0;
         right: auto;
@@ -264,7 +294,6 @@
         left: 0;
         right: auto;
         width: 100%;
-        opacity: 1;
         background-color: $c-purple;
       }
     }
