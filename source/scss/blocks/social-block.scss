@@ -155,7 +155,7 @@
       opacity 0.35s ease-in-out,
       visibility 0.35s ease-in-out;
 
-    @include childrenDelay(2, 3);
+    @include increaseDelay(2, 3);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       margin: 0 1.25rem;
