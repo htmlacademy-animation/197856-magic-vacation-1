@@ -2347,7 +2347,7 @@ img {
   column-count: 2;
   column-gap: 9.6rem;
   margin: auto;
-  padding-top: 7rem;
+  padding-top: 6.6rem;
   max-width: 69.6rem; }
   @media (max-width: 1024px) and (orientation: portrait) {
     .rules__list {
@@ -2364,7 +2364,7 @@ img {
 .rules__item {
   position: relative;
   margin: 0 0 6.2rem;
-  padding-top: 0.6rem;
+  padding-top: 1rem;
   padding-left: 6.5rem;
   break-inside: avoid; }
   @media (max-width: 1024px) and (orientation: portrait) {
@@ -2381,7 +2381,7 @@ img {
   .rules__item::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: 0.4rem;
     left: 0;
     width: 4.5rem;
     height: 4.5rem;
@@ -2391,7 +2391,8 @@ img {
       animation-name: scaleUp;
       animation-duration: 0.5s;
       animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1.38);
-      animation-fill-mode: backwards; }
+      animation-fill-mode: backwards;
+      animation-delay: 0.25s; }
     @media (max-width: 1024px) and (orientation: portrait) {
       .rules__item::before {
         top: 1rem;
@@ -2406,7 +2407,7 @@ img {
     content: counter(li);
     counter-increment: li;
     position: absolute;
-    top: 0;
+    top: 0.4rem;
     left: 0;
     display: block;
     width: 4.5rem;
@@ -2420,7 +2421,7 @@ img {
       animation-name: fadeIn;
       animation-duration: 0.5s;
       animation-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
-      animation-delay: 0.3s;
+      animation-delay: 0.6s;
       animation-fill-mode: backwards; }
     @media (max-width: 1024px) and (orientation: portrait) {
       .rules__item::after {
@@ -2443,34 +2444,28 @@ img {
       animation-duration: 0.5s;
       animation-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
       animation-fill-mode: backwards;
-      animation-delay: 0.35s; }
+      animation-delay: 0.6s; }
     @media (max-width: 1024px) and (orientation: portrait) {
       .rules__item p {
         min-height: calc(1.4rem * 2.2); } }
-  .active .rules__item:nth-child(1)::before {
-    animation-delay: 0.3s; }
-  .active .rules__item:nth-child(1)::after {
-    animation-delay: 0.65s; }
-  .active .rules__item:nth-child(1) p {
-    animation-delay: 0.65s; }
   .active .rules__item:nth-child(2)::before {
-    animation-delay: 0.6s; }
+    animation-delay: 0.85s; }
   .active .rules__item:nth-child(2)::after {
-    animation-delay: 0.95s; }
-  .active .rules__item:nth-child(2) p {
-    animation-delay: 0.95s; }
-  .active .rules__item:nth-child(3)::before {
-    animation-delay: 0.9s; }
-  .active .rules__item:nth-child(3)::after {
-    animation-delay: 1.25s; }
-  .active .rules__item:nth-child(3) p {
-    animation-delay: 1.25s; }
-  .active .rules__item:nth-child(4)::before {
     animation-delay: 1.2s; }
+  .active .rules__item:nth-child(2) p {
+    animation-delay: 1.2s; }
+  .active .rules__item:nth-child(3)::before {
+    animation-delay: 1.45s; }
+  .active .rules__item:nth-child(3)::after {
+    animation-delay: 1.8s; }
+  .active .rules__item:nth-child(3) p {
+    animation-delay: 1.8s; }
+  .active .rules__item:nth-child(4)::before {
+    animation-delay: 2.05s; }
   .active .rules__item:nth-child(4)::after {
-    animation-delay: 1.55s; }
+    animation-delay: 2.4s; }
   .active .rules__item:nth-child(4) p {
-    animation-delay: 1.55s; }
+    animation-delay: 2.4s; }
 
 .rules__link {
   position: absolute;
