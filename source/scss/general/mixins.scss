@@ -59,7 +59,7 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin childrenDelay($startValue: 1, $itemsLength: 1, $delay: 0.1) {
+@mixin increaseDelay($startValue: 1, $itemsLength: 1, $delay: 0.1) {
   @for $i from $startValue through $itemsLength {
     &:nth-child(#{$i}) {
       transition-delay: #{$delay * ($i - 1)}s;

@@ -19,10 +19,6 @@
   padding: 14.6rem 4rem 10rem 9.7rem;
   height: auto;
 
-  @media (min-width: $stop-scaling) {
-    padding: 146px 40px 100px 97px;
-  }
-
   @media (orientation: portrait) {
     display: flex;
     flex-direction: column;
@@ -50,10 +46,6 @@
     .slider__item-text {
       margin-top: 7.8rem;
 
-      @media (min-width: $stop-scaling) {
-        margin-top: 78px;
-      }
-
       @media (orientation: portrait) {
         margin-top: auto;
       }
@@ -74,11 +66,6 @@
   line-height: 0.906;
   letter-spacing: -0.04em;
 
-  @media (min-width: $stop-scaling) {
-    margin-left: -55px;
-    font-size: 48px;
-  }
-
   @media (orientation: portrait) {
     margin-left: -2.5rem;
     font-size: 3.6rem;
@@ -96,12 +83,19 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  animation-duration: 0.4s;
+  animation-timing-function: $sineOut;
+  animation-fill-mode: forwards;
 
-  @media (min-width: $stop-scaling) {
-    margin-top: 36px;
-    max-width: 340px;
-    font-size: 18px;
-    line-height: 20px;
+  .swiper-slide-active & {
+    animation-name: fadeLeft;
+    animation-delay: 0.3s;
+  }
+
+  .swiper-slide-next & {
+    animation-name: fadeLeft;
+    animation-delay: 0.4s;
   }
 
   @media (orientation: portrait) {
@@ -135,11 +129,6 @@
   width: 17rem;
   z-index: 1;
 
-  @media (min-width: $stop-scaling) {
-    bottom: 28px;
-    width: 170px;
-  }
-
   @media (orientation: portrait) {
     display: none;
   }
@@ -155,11 +144,6 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
-
-  @media (min-width: $stop-scaling) {
-    width: 40px;
-    height: 40px;
-  }
 
   &::before {
     @include center;
@@ -178,11 +162,6 @@
     width: 1rem;
     height: 2rem;
     pointer-events: none;
-
-    @media (min-width: $stop-scaling) {
-      width: 10px;
-      height: 20px;
-    }
   }
 
   &:hover {
@@ -233,14 +212,6 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
-
-  @media (min-width: $stop-scaling) {
-    bottom: 28px;
-    width: 90px;
-    height: 40px;
-    font-size: 24px;
-    line-height: 40px;
-  }
 
   @media (orientation: portrait) {
     width: 100%;

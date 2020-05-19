@@ -103,10 +103,6 @@
   visibility: hidden;
   transition: visibility 0.35s;
 
-  @media (min-width: $stop-scaling) {
-    margin-top: 15px;
-  }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     position: static;
     display: flex;
@@ -134,10 +130,6 @@
     left: 0;
     right: 0;
     height: 1.5rem;
-
-    @media (min-width: $stop-scaling) {
-      height: 15px;
-    }
   }
 
   &:hover,
@@ -163,11 +155,7 @@
       opacity 0.35s ease-in-out,
       visibility 0.35s ease-in-out;
 
-    @include childrenDelay(2, 3);
-
-    @media (min-width: $stop-scaling) {
-      margin-bottom: 5px;
-    }
+    @include increaseDelay(2, 3);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       margin: 0 1.25rem;
@@ -191,12 +179,6 @@
     color 0.35s,
     background-color 0.35s,
     border-color 0.35s;
-
-
-  @media (min-width: $stop-scaling) {
-    width: 40px;
-    height: 40px;
-  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     color: $c-light;
@@ -234,11 +216,6 @@
     svg {
       width: 0.8rem;
       height: 1.7rem;
-
-      @media (min-width: $stop-scaling) {
-        width: 8px;
-        height: 17px;
-      }
     }
   }
 
@@ -246,11 +223,6 @@
     svg {
       width: 1.5rem;
       height: 1.5rem;
-
-      @media (min-width: $stop-scaling) {
-        width: 15px;
-        height: 15px;
-      }
     }
   }
 
@@ -258,11 +230,6 @@
     svg {
       width: 1.7rem;
       height: 1rem;
-
-      @media (min-width: $stop-scaling) {
-        width: 10px;
-        height: 10px;
-      }
     }
   }
 }
