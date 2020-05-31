@@ -1,0 +1,24 @@
+.text-anim {
+  position: relative;
+  top: -2.5rem;
+}
+
+.text-anim__word {
+  display: inline-block;
+  overflow: hidden;
+  margin-top: -5rem;
+  padding-top: 2.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.text-anim__word > span {
+  display: inline-block;
+  transform: translate3d(0, 120%, 0);
+}
+
+.text-anim.is-animate .text-anim__word > span {
+  transform: translate3d(0, 0, 0);
+}

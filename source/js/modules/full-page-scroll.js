@@ -1,14 +1,7 @@
 import throttle from 'lodash/throttle';
 import vars from "../vars";
 import PageOverlay from "./page-overlay";
-
-const Screens = {
-  TOP: `top`,
-  PRIZES: `prizes`,
-  STORY: `story`,
-  RULES: `rules`,
-  GAME: `rules`,
-};
+import {Screens} from "../vars";
 
 export default class FullPageScroll {
   constructor() {
@@ -42,7 +35,6 @@ export default class FullPageScroll {
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
     this.onUrlHashChenged();
-    this.changePageDisplay();
   }
 
   onScroll(evt) {

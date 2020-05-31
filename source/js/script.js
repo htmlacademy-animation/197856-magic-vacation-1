@@ -10,6 +10,7 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import Rules from "./modules/rules";
 import loader from "./modules/loader";
+import "./modules/screen-titles";
 
 // init modules
 loader();
