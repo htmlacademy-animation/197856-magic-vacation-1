@@ -1,3 +1,11 @@
+export const Screens = {
+  TOP: `top`,
+  PRIZES: `prizes`,
+  STORY: `story`,
+  RULES: `rules`,
+  GAME: `game`,
+};
+
 const vars = {};
 
 vars.body = document.body;
