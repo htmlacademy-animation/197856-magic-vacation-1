@@ -16,6 +16,10 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 5rem 0 1.5rem;
   }
+
+  @media (min-width: $desktop) {
+    max-height: 100vh;
+  }
 }
 
 .prizes__title {

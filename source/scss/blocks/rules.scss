@@ -17,6 +17,10 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 4rem 0 4rem;
   }
+
+  @media (min-width: $desktop) {
+    max-height: 100vh;
+  }
 }
 
 .rules__title {
