@@ -23,7 +23,7 @@
 }
 
 .prizes__title {
-  margin: 0 0 6rem;
+  margin: 0 0 2.5rem;
   text-transform: uppercase;
   font-family: $font-alt;
   font-weight: 400;
@@ -32,18 +32,18 @@
   letter-spacing: -0.04em;
 
   @media (max-width: $tablet) and (orientation: portrait) {
-    margin-bottom: 1.8rem;
+    margin-bottom: 0;
     font-size: 3.6rem;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 }
 
@@ -54,6 +54,9 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  animation-name: fadeUpCenter;
+  animation-duration: 0.35s;
+  animation-timing-function: $sineOut;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     margin-left: 2.5rem;
@@ -96,6 +99,22 @@
 .prizes__item {
   margin-left: 7.5rem;
 
+  .prizes__desc {
+    opacity: 0;
+  }
+
+  @media (min-width: $mobile) and (orientation: landscape) {
+    &--journeys {
+      transform: translateX(100%);
+    }
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    &--journeys {
+      transform: translateX(150%);
+    }
+  }
+
   @media (max-width: $tablet) and (orientation: portrait) {
     display: flex;
     align-items: flex-end;
@@ -115,7 +134,7 @@
     .prizes__icon {
       position: relative;
       left: -5.9rem;
-      bottom: -1.4rem;
+      //bottom: -1.4rem;
       width: 26.8rem;
 
       @media (max-width: $tablet) and (orientation: portrait) {
@@ -141,6 +160,10 @@
     @media (max-width: $tablet) and (orientation: portrait) {
       margin-left: 0;
       padding-left: 1.5rem;
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      margin-left: 5rem;
     }
 
     .prizes__icon {
@@ -273,6 +296,35 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: 0.5rem;
       height: 0.5rem;
+    }
+  }
+}
+
+// active animation
+.prizes__list--active {
+  .prizes__desc {
+    opacity: 1;
+    transition: opacity 0.5s $sineOut;
+  }
+
+  .prizes__item--journeys {
+    transform: translateX(0);
+    transition: transform 1s ease 6.7s;
+  }
+
+  .prizes__item--cases,
+  .prizes__item--codes {
+    .prizes__desc {
+      transition-delay: 8s;
+    }
+  }
+
+  @media (orientation: portrait) {
+    .prizes__item--cases,
+    .prizes__item--codes {
+      .prizes__desc {
+        transition-delay: 0s;
+      }
     }
   }
 }

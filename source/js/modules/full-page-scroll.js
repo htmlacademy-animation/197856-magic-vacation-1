@@ -3,12 +3,15 @@ import vars from "../vars";
 import PageOverlay from "./page-overlay";
 import {Screens} from "../vars";
 
+
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.screenTimeOut = null;
+    this.dispatchEvtTimeOut = null;
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -99,7 +102,12 @@ export default class FullPageScroll {
       screen.classList.remove(`active`);
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    this.screenElements[this.activeScreen].classList.add(`active`);
+
+    clearTimeout(this.screenTimeOut);
+
+    this.screenTimeOut = setTimeout(() => {
+      this.screenElements[this.activeScreen].classList.add(`active`);
+    }, 0);
   }
 
   changeActiveMenuItem() {
@@ -119,7 +127,11 @@ export default class FullPageScroll {
       }
     });
 
-    document.body.dispatchEvent(event);
+    clearTimeout(this.dispatchEvtTimeOut);
+
+    this.dispatchEvtTimeOut = setTimeout(() => {
+      document.body.dispatchEvent(event);
+    }, 0);
   }
 
   reCalculateActiveScreenPosition(delta) {
