@@ -82,6 +82,10 @@
   flex-grow: 1;
   max-width: 18rem;
 
+  .screen--show & {
+    max-width: 28rem;
+  }
+
   @media (orientation: portrait) {
     position: relative;
     flex: none;
