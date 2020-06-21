@@ -167,7 +167,11 @@
     }
 
     .prizes__icon {
-      width: 18.8rem;
+      width: 32rem;
+
+      @media (min-width: $desktop) {
+        margin-left: -14rem;
+      }
 
       @media (max-width: $tablet) and (orientation: portrait) {
         margin-right: 1.3rem;
@@ -179,7 +183,8 @@
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
-        width: 7rem;
+        margin-left: -5rem;
+        width: 13rem;
       }
     }
   }
@@ -312,10 +317,15 @@
     transition: transform 1s ease 6.7s;
   }
 
-  .prizes__item--cases,
-  .prizes__item--codes {
+  .prizes__item--cases {
     .prizes__desc {
       transition-delay: 8s;
+    }
+  }
+
+  .prizes__item--codes {
+    .prizes__desc {
+      transition-delay: 10.5s;
     }
   }
 
