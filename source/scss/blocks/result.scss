@@ -226,3 +226,23 @@
     }
   }
 }
+
+.result__title .result__svg-anim--lose {
+  height: 300%;
+  transform: translateY(-35%);
+}
+
+.screen--show .result__svg-anim--win {
+  animation-name: scaleDown;
+  animation-duration: 0.5s;
+  animation-timing-function: $sineOut;
+}
+
+.screen--show .result__svg-anim--lose {
+  path {
+    animation-name: fallDownLetter;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: backwards;
+  }
+}

@@ -35,7 +35,7 @@
   margin-right: 3rem;
   padding: 0 5.6rem;
   height: 6rem;
-  width: calc(100% - 21rem);
+  width: 0;
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -47,7 +47,10 @@
   transition: width 0.5s;
 
   .active & {
-    animation: animateMessageInput 0.75s ease;
+    animation-name: animateMessageInput;
+    animation-duration: 0.75s;
+    animation-timing-function: $sineOut;
+    animation-fill-mode: forwards;
   }
 
   &:focus {
@@ -78,6 +81,10 @@
 .form__button {
   flex-grow: 1;
   max-width: 18rem;
+
+  .screen--show & {
+    max-width: 28rem;
+  }
 
   @media (orientation: portrait) {
     position: relative;

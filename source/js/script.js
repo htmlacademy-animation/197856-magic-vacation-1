@@ -8,9 +8,10 @@ import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
-import Rules from "./modules/rules";
-import loader from "./modules/loader";
-import "./modules/screen-titles";
+import Rules from './modules/rules';
+import loader from './modules/loader';
+import './modules/screen-titles';
+import './modules/prizes-animation';
 
 // init modules
 loader();
