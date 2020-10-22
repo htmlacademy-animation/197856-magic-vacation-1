@@ -1,5 +1,7 @@
 const POINTS = 3;
 
+const ANIMATION_DELAY = 0.08;
+
 const getStrokeAnimateTag = (path, pathLength, dur = 1) => {
   const animateTag = document.createElementNS(`http://www.w3.org/2000/svg`, `animate`);
 
@@ -40,7 +42,7 @@ const animateResultSvg = () => {
 
     if (isLoseSvg) {
       pathItem.style.animationDelay = `${animationDelay}s`;
-      animationDelay += 0.08;
+      animationDelay += ANIMATION_DELAY;
     }
 
     pathItem.appendChild(getStrokeAnimateTag(pathItem, pathLength));

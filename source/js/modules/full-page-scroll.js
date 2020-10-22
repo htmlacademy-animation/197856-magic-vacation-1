@@ -3,7 +3,6 @@ import vars from "../vars";
 import PageOverlay from "./page-overlay";
 import {Screens} from "../vars";
 
-
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
