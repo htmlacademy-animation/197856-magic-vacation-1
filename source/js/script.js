@@ -12,6 +12,7 @@ import Rules from './modules/rules';
 import loader from './modules/loader';
 import './modules/screen-titles';
 import './modules/prizes-animation';
+import './modules/timer';
 
 // init modules
 loader();
