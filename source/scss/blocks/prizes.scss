@@ -101,6 +101,11 @@
 
   .prizes__desc {
     opacity: 0;
+
+    span {
+      opacity: 0;
+      transform: translateX(40%);
+    }
   }
 
   @media (min-width: $mobile) and (orientation: landscape) {
@@ -251,6 +256,8 @@
   }
 
   b {
+    display: inline-block;
+    vertical-align: bottom;
     font-family: $font-alt;
     font-weight: 400;
     font-size: 12rem;
@@ -310,22 +317,40 @@
   .prizes__desc {
     opacity: 1;
     transition: opacity 0.5s $sineOut;
+
+    span {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.5s $sineOut, transform 0.6s $sineOut;
+    }
   }
 
   .prizes__item--journeys {
     transform: translateX(0);
     transition: transform 1s ease 6.7s;
+
+    .prizes__desc span {
+      transition-delay: 5s;
+    }
   }
 
   .prizes__item--cases {
     .prizes__desc {
       transition-delay: 8s;
+
+      span {
+        transition-delay: 9s;
+      }
     }
   }
 
   .prizes__item--codes {
     .prizes__desc {
       transition-delay: 10.5s;
+
+      span {
+        transition-delay: 11.5s;
+      }
     }
   }
 
